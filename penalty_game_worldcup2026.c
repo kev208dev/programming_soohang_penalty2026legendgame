@@ -4,16 +4,16 @@
 #include <time.h>
 #include <unistd.h>
 
-int N = 12, M = 6;
+int N = 15, M = 11;
 
-char tn[12][30] = {
+char tn[N][30] = {
     "한국","일본","브라질","아르헨티나","프랑스","잉글랜드",
     "스페인","독일","포르투갈","네덜란드","벨기에","크로아티아"
 }; //국가명단
-int atk[12] = {80,78,95,93,92,91,89,90,88,85,84,82}; //공격수치
-int def[12] = {82,80,88,85,90,87,88,91,84,86,83,85}; //방어수치
+int atk[N] = {80,78,95,93,92,91,89,90,88,85,84,82}; //공격수치
+int def[N] = {82,80,88,85,90,87,88,91,84,86,83,85}; //방어수치
 
-char pn[12][6][40] = {
+char pn[N][M][40] = {
     {"김승규","김민재","이재성","황희찬","이강인","손흥민"},
     {"Zion Suzuki","Ko Itakura","Takefusa Kubo","Ritsu Doan","Daichi Kamada","Ayase Ueda"},
     {"Alisson","Marquinhos","Casemiro","Vinicius Jr","Neymar","Raphinha"},
@@ -50,9 +50,9 @@ int judge(int shot, int guess, int atk_v, int def_v) { //선방판단
 }
 
 int pickMe() {  //국가선택
-    int me, i;
-    for (i = 0; i < N; i++) {
-        printf("%2d. %-12s 공:%d 수:%d\n", i + 1, tn[i], atk[i], def[i]);
+    int me;
+    for (int i = 0; i < N; i++) {
+        printf("%2d. %-12s 공격력:%d 수비력:%d\n", i + 1, tn[i], atk[i], def[i]);
     }
     printf("13. 얼굴인식\n");
     printf(">> ");
@@ -61,7 +61,7 @@ int pickMe() {  //국가선택
     if (me == 13) {
         printf("\n얼굴인식 중입니다");
         fflush(stdout);
-        for (i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             sleep(1);
             printf(".");
             fflush(stdout);

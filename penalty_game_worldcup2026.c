@@ -33,7 +33,7 @@ int getDir(const char *msg) {   //방향입력
     while (1) {
         printf("%s", msg);
         if (scanf("%d", &x) == 1 && x >= 1 && x <= 3) return x - 1;
-        while ((c = getchar()) != '\n' && c != EOF);
+        while ((c = getchar()) != '\n');
         printf("1, 2, 3 중에서만 입력!\n");
     }
 } 
